@@ -1,0 +1,21 @@
+version: '3.8'
+
+services:
+  idregion:
+    container_name: idregion
+    network_mode: bridge
+    build: 
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app/idregion
+      - data:/app/idregion/src/data
+    restart: always
+    ports:
+      - 4000:4000
+    environment:
+      - COMPOSE_PROJECT_NAME=${COMPOSE_PROJECT_NAME}
+    command: npm start
+
+volumes:
+  data:

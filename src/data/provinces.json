@@ -1,0 +1,138 @@
+[
+  {
+    "id": "11",
+    "province": "ACEH"
+  },
+  {
+    "id": "12",
+    "province": "SUMATERA UTARA"
+  },
+  {
+    "id": "13",
+    "province": "SUMATERA BARAT"
+  },
+  {
+    "id": "14",
+    "province": "RIAU"
+  },
+  {
+    "id": "15",
+    "province": "JAMBI"
+  },
+  {
+    "id": "16",
+    "province": "SUMATERA SELATAN"
+  },
+  {
+    "id": "17",
+    "province": "BENGKULU"
+  },
+  {
+    "id": "18",
+    "province": "LAMPUNG"
+  },
+  {
+    "id": "19",
+    "province": "KEPULAUAN BANGKA BELITUNG"
+  },
+  {
+    "id": "21",
+    "province": "KEPULAUAN RIAU"
+  },
+  {
+    "id": "31",
+    "province": "DKI JAKARTA"
+  },
+  {
+    "id": "32",
+    "province": "JAWA BARAT"
+  },
+  {
+    "id": "33",
+    "province": "JAWA TENGAH"
+  },
+  {
+    "id": "34",
+    "province": "DI YOGYAKARTA"
+  },
+  {
+    "id": "35",
+    "province": "JAWA TIMUR"
+  },
+  {
+    "id": "36",
+    "province": "BANTEN"
+  },
+  {
+    "id": "51",
+    "province": "BALI"
+  },
+  {
+    "id": "52",
+    "province": "NUSA TENGGARA BARAT"
+  },
+  {
+    "id": "53",
+    "province": "NUSA TENGGARA TIMUR"
+  },
+  {
+    "id": "61",
+    "province": "KALIMANTAN BARAT"
+  },
+  {
+    "id": "62",
+    "province": "KALIMANTAN TENGAH"
+  },
+  {
+    "id": "63",
+    "province": "KALIMANTAN SELATAN"
+  },
+  {
+    "id": "64",
+    "province": "KALIMANTAN TIMUR"
+  },
+  {
+    "id": "65",
+    "province": "KALIMANTAN UTARA"
+  },
+  {
+    "id": "71",
+    "province": "SULAWESI UTARA"
+  },
+  {
+    "id": "72",
+    "province": "SULAWESI TENGAH"
+  },
+  {
+    "id": "73",
+    "province": "SULAWESI SELATAN"
+  },
+  {
+    "id": "74",
+    "province": "SULAWESI TENGGARA"
+  },
+  {
+    "id": "75",
+    "province": "GORONTALO"
+  },
+  {
+    "id": "76",
+    "province": "SULAWESI BARAT"
+  },
+  {
+    "id": "81",
+    "province": "MALUKU"
+  },
+  {
+    "id": "82",
+    "province": "MALUKU UTARA"
+  },
+  {
+    "id": "91",
+    "province": "PAPUA BARAT"
+  },
+  {
+    "id": "94",
+    "province": "PAPUA"
+  }
+]
