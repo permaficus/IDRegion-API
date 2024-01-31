@@ -4,5 +4,6 @@ RUN npm install -g nodemon
 COPY package*.json ./
 RUN npm ci
 COPY . .
+RUN npm run build:model
 EXPOSE 4000
 CMD [ "npm", "start" ]
