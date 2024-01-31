@@ -6,7 +6,7 @@ const regenciesData = 'src/data/regencies.json';
 
 export const FetchingData = async (req, res) => {
     const { model, pid } = req.params
-    if (!model || !pid) {
+    if (!model && !pid) {
         res.status(400).json({
             status: 'ERR_BAD_REQUEST',
             code: 400,
@@ -18,7 +18,7 @@ export const FetchingData = async (req, res) => {
     try {
         const read = {
             ...model == 'province' 
-                ? { data: await readFile(provincesData, 'utf-8'), fileName: 'provinces' } 
+                ? { data: await readFile(provincesData, 'utf-8'), fileName: 'province' } 
                 : { data: await readFile(regenciesData, 'utf-8'), fileName: 'city' }
         }
         if (read.data) {
