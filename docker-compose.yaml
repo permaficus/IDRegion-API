@@ -3,7 +3,7 @@ version: '3.8'
 services:
   idregion:
     container_name: idregion
-    network_mode: lefina-dev
+    network_mode: bridge
     build: 
       context: .
       dockerfile: Dockerfile
