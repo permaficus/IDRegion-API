@@ -21,7 +21,7 @@ export const readFromCache = (config = { ttl: 10080, cacheReferences: null, requ
                 status: 'OK',
                 cache: 'HIT',
                 code: 200,
-                data: JSON.parse(cachedData)
+                result: JSON.parse(cachedData)
             }).end()
             return;
         }

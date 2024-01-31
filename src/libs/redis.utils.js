@@ -13,23 +13,11 @@ export const redisClient = async () => {
     client.on('ready', ()=> console.log(`[REDIS] Connected`))
     return client
 }
-
-export const cacheIdCompiler = (key, query) => {
-    if (!query) {
-        return key
-    }
-    
-    let cacheId = `${key}:`
-    for (let props in query) {
-        cacheId = cacheId.concat(`${query[props].replace(/[^a-zA-Z0-9-]+/, ':')}:`)
-    }
-    return cacheId.substring(0, cacheId.length - 1)
-}
 export const redisCache = async (options, id, data, config = { NX: false, XX: false, TTL: 10080}) => {
     const client = await redisClient();
     switch (options) {
         case 'set': {
-            await client.set(id, JSON.stringify(data), {
+            await client.set(id, data, {
                 // NX: true,
                 ...(config.NX && { NX: true, XX: false }),
                 ...(config.XX && { XX: true, NX: false }),

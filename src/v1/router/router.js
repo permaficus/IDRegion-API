@@ -4,6 +4,5 @@ import { readFromCache } from '../middleware/cache.utils.js';
 
 const router = express.Router();
 
-router.get('/provinces', readFromCache(), FetchingData.provinces)
-router.get('/city/:pid', readFromCache(), FetchingData.cities)
+router.get('/:model/:pid?', readFromCache(), FetchingData)
 export { router }
