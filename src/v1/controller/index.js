@@ -37,7 +37,6 @@ export const FetchingData = async (req, res) => {
             result: model == 'province' ? JSON.parse(read.data) : JSON.parse(read.data).filter(e => e.pid === pid)
         })
     } catch (error) {
-        console.log(error)
         res.status(500).json({
             status: 'INTERNAL_SERVER_ERROR',
             code: 500,
