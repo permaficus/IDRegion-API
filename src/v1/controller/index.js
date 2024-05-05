@@ -4,8 +4,12 @@ import { redisCache } from '../../libs/redis.utils.js';
 const provincesData = 'src/data/provinces.json';
 const regenciesData = 'src/data/regencies.json';
 
-export const FetchingData = async (req, res) => {
+export const FetchingData = async (req, res, next) => {
     const { model, pid } = req.params
+    if (model !== 'province' || model !== 'city') {
+        res.status(404);
+        next()
+    }
     let rawData = {}
     if (!model && !pid) {
         res.status(400).json({
