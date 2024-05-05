@@ -6,20 +6,17 @@ const regenciesData = 'src/data/regencies.json';
 
 export const FetchingData = async (req, res, next) => {
     const { model, pid } = req.params
-    if (model !== 'province' || model !== 'city') {
+    if (!['province', 'city'].includes(model)) {
         res.status(404);
         next()
-    }
-    let rawData = {}
-    if (!model && !pid) {
-        res.status(400).json({
-            status: 'ERR_BAD_REQUEST',
-            code: 400,
-            message: `Request doesn't meet our standard requirement`
-        }).end()
         return
     }
-
+    if (model === 'city' && !pid) {
+        res.status(400);
+        next(new Error(`Request doesn't meet our standard requirement`));
+        return;
+    }
+    let rawData = {}
     try {
         const read = {
             ...model == 'province' 
