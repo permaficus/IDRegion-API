@@ -17,6 +17,7 @@ export const FetchingData = async (req, res, next) => {
             code: 400,
             error_details: `Request doesn't meet our standard requirement`
         }).end();
+        return;
     }
     let rawData = {}
     try {
