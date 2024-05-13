@@ -2,7 +2,7 @@ import express from 'express'
 import { router as v1 } from '../v1/router/router.js';
 import { SERVICE_LOCAL_PORT, NODE_ENV, allowedOrigin } from '../constant/config.js';
 import cors from 'cors';
-import { badRequest } from '../v1/middleware/httpErrHandler.js';
+import { PathNotFound, badRequest } from '../v1/middleware/httpErrHandler.js';
 
 const httpServer = new express();
 
@@ -20,8 +20,9 @@ const serverInit = () => {
             return callback(null, true)
         }} : {}
     }));
-    httpServer.use('/v1', v1);
+    httpServer.use('/api/v1', v1);
     httpServer.use(badRequest)
+    httpServer.use('*', PathNotFound)
 }
 
 export { serverInit, httpServer, SERVICE_LOCAL_PORT, NODE_ENV }
