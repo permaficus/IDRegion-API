@@ -1,20 +1,6 @@
 import express from 'express'
 
-const errCodes = (code) => {
-    switch (code) {
-        case 404: {
-            return 'ERR_NOT_FOUND'
-        }
-        case 400: {
-            return 'ERR_BAD_REQUEST'
-        }
-        case 500: {
-            return 'ERR_BAD_SERVICE'
-        }
-    }
-}
-
-export const badRequest = async ( err, req, res ) => {
+export const badRequest = async ( err, res, next ) => {
     if (err instanceof SyntaxError && 'body' in err) {
         res.status(400).send({
             status: 'ERR_BAD_REQUEST',
@@ -23,19 +9,16 @@ export const badRequest = async ( err, req, res ) => {
         }).end();
         return;
     }
+
+    next();
 }
-export const PathNotFound = async (req, res, next) => {
-    res.status(404);
-    next(new Error(`Path Not Found - ${req.originalUrl}`));
-}
-export const errHandler = async (err, req, res, next ) => {
-    if (res.headerSent) {
-        return next(err)
-    }
-    const statusCode = res.statusCode !== 200 ? res.statusCode : 500
-    res.status(statusCode).json({
-        status: errCodes(statusCode),
-        code: statusCode,
-        details: err.message
-    }).end();
+export const PathNotFound = async (err, res) => {
+    res.status(404).json({
+        status: 'ERR_NOT_FOUND',
+        code: 404,
+        errors: {
+            message: `URL Not Found - ${err.originalUrl}`,
+            method: err.method
+        }
+    })
 }

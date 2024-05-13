@@ -12,9 +12,11 @@ export const FetchingData = async (req, res, next) => {
         return
     }
     if (model === 'city' && !pid) {
-        res.status(400);
-        next(new Error(`Request doesn't meet our standard requirement`));
-        return;
+        res.status(400).json({
+            status: 'ERR_BAD_REQUEST',
+            code: 400,
+            error_details: `Request doesn't meet our standard requirement`
+        }).end();
     }
     let rawData = {}
     try {
@@ -39,10 +41,9 @@ export const FetchingData = async (req, res, next) => {
         })
     } catch (error) {
         res.status(500).json({
-            status: 'INTERNAL_SERVER_ERROR',
+            status: 'ERR_BAD_SERVICE',
             code: 500,
-            message: error.message
+            error_details: error.message
         }).end();
-        return
     }
 }
