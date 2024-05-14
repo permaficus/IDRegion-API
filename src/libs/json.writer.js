@@ -13,13 +13,16 @@ export const generateJsonFile = async () => {
         } catch (error) {
             return false                
         }
-    }
+    };
     files.map( async (file) => {
         let rawData = []
         if (await isFileExist(file)) {
             await unlink(`${path}/${file}.json`)
         }
         fs.createReadStream(`${path}/${file}.csv`)
+            .on("error", error => {
+                console.error(`${chalk.redBright(`[ID-REGION] Error: ${error.message}`)}`);
+            })
             .pipe(parse({ delimiter: ',', from_line: 1 }))
             .on("data", row => {
                 rawData = [...rawData, { 
@@ -30,5 +33,5 @@ export const generateJsonFile = async () => {
                 await writeFile(`${path}/${file}.json`, JSON.stringify(rawData, null, 2), 'utf-8')
                 console.log(chalk.green(`[ID-REGION] Generate ${file}.json done!..`))
             })
-    })
+    });
 }
