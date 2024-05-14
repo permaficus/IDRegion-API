@@ -1,7 +1,7 @@
 import { redisClient } from "../../libs/redis.utils.js";
 import { CACHING_METHOD } from "../../constant/config.js";
 
-export const readFromCache = (config = { ttl: 10080, cacheReferences: null, requestUpdate: true }) => {
+export const readFromCache = () => {
     return async (req, res, next) => {
         if (CACHING_METHOD === 'none') {
             next();
