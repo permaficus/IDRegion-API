@@ -1,0 +1,154 @@
+{
+    "openapi": "3.1.0",
+    "info": {
+      "title": "ID-Region API Documentation",
+      "description": "API dengan data statis yang hanya menampilkan daftar provinsi dan kota/kabupaten berdasarkan provinsi yang di pilih",
+      "contact": {
+        "email": "abukhalif2019@gmail.com"
+      },
+      "version": "1.0.0"
+    },
+    "externalDocs": {
+        "description": "Code on github",
+        "url": "https://github.com/permaficus/IDRegion-API"
+    },
+    "servers": [
+      {
+        "url": "http://localhost:4000"
+      }
+    ],
+    "tags": [
+      {
+        "name": "Endpoints",
+        "description": "Everything about ID-Region endpoints"
+      }
+    ],
+    "paths": {
+        "/api/v1/province": {
+            "get": {
+                "tags": [
+                    "Endpoints"
+                ],
+                "summary": "Get province list",
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/GetProvinceResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/v1/city/{provinceId}": {
+            "get": {
+                "tags": [
+                    "Endpoints"
+                ],
+                "summary": "Get city list by province ID",
+                "parameters": [
+                    {
+                        "name": "provinceId",
+                        "operationID": "provinceId",
+                        "in": "path",
+                        "explode": true,
+                        "required": true,
+                        "schema": {
+                            "type": "string",
+                            "enum": [
+                                "33",
+                                "35"
+                            ]
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Success Response",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "$ref": "#/definitions/GetCityResponse"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "definitions": {
+        "GetProvinceResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "example": "OK"
+                },
+                "code": {
+                    "type": "integer",
+                    "example": 200
+                },
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/ProvinceResult"
+                    }
+                }
+            }
+        },
+        "ProvinceResult": {
+            "type": "object",
+            "properties": {
+                "id": {
+                    "type": "string",
+                    "example": "35"
+                },
+                "province": {
+                    "type": "string",
+                    "example": "JAWA TIMUR"
+                }
+            }
+        },
+        "GetCityResponse": {
+            "type": "object",
+            "properties": {
+                "status": {
+                    "type": "string",
+                    "example": "OK"
+                },
+                "code": {
+                    "type": "integer",
+                    "example": 200
+                },
+                "result": {
+                    "type": "array",
+                    "items": {
+                        "$ref": "#/definitions/CityResult"
+                    }
+                }
+            }
+        },
+        "CityResult": {
+            "type": "object",
+            "properties": {
+                "rid": {
+                    "type": "string",
+                    "example": "3578"
+                },
+                "pid": {
+                    "type": "string",
+                    "example": "35"
+                },
+                "location": {
+                    "type": "string",
+                    "example": "KOTA SURABAYA"
+                }
+            }
+        }
+    }
+}
