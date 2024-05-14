@@ -22,7 +22,7 @@
     "@types/express": "^4.17.21"
   },
   "nodemonConfig": {
-    "watch": [".env"],
+    "ext": "js, env",
     "ignore": [
       "**/data/**"
     ]
