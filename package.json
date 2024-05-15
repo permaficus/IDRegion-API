@@ -1,15 +1,25 @@
 {
   "name": "idregion",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Indonesia Region API",
   "main": "src/app.js",
   "type": "module",
+  "keywords": [
+    "api wilayah indonesia",
+    "indonesia region api",
+    "wilayah indonesia",
+    "idregion-api"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/permaficus/IDRegion-API"
+  },
   "scripts": {
     "build:model": "node src/build.js",
     "start": "nodemon src/app.js"
   },
-  "author": "Permaficus",
-  "license": "ISC",
+  "author": "Permaficus <abukhalif2019@gmail.com>",
+  "license": "MIT",
   "dependencies": {
     "chalk": "^5.3.0",
     "cors": "^2.8.5",
