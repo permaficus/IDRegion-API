@@ -3,7 +3,7 @@ import { CACHING_METHOD } from "../../constant/config.js";
 
 export const readFromCache = () => {
     return async (req, res, next) => {
-        if (CACHING_METHOD === 'none') {
+        if (CACHING_METHOD !== "active") {
             next();
             return;
         }
