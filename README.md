@@ -27,9 +27,10 @@ Docker
 ```sh
 docker compose up -d
 ```
-> [!NOTE]
+
+>[!NOTE]
 >
-> Dengan docker kamu tidak perlu menggunakan `npm run build:model` lagi, semua sudah di lakukan oleh Dockerfile
+>Dengan docker kamu tidak perlu menggunakan `npm run build:model` lagi, semua sudah di lakukan oleh Dockerfile
 
 </details>
 
