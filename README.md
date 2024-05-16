@@ -21,6 +21,16 @@ npm run build:model
 ```sh
 npm start
 ```
+
+Docker
+
+```sh
+docker compose up -d
+```
+> [!NOTE]
+>
+> Dengan docker kamu tidak perlu menggunakan `npm run build:model` lagi, semua sudah di lakukan oleh Dockerfile
+
 </details>
 
 ## API Documentations
